@@ -1,0 +1,29 @@
+[
+  {
+    "environment": [],
+    "name": "scalamatsuri-kinesis-publisher",
+    "mountPoints": [
+      {
+        "sourceVolume": "logs",
+        "containerPath": "/var/log/scalamatsuri"
+      }
+    ],
+    "image": "995375717683.dkr.ecr.ap-northeast-1.amazonaws.com/scalamatsuri-kinesis-publisher:latest",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "ecs",
+        "awslogs-group": "/ecs/scalamatsuri-kinesis-publisher"
+      }
+    },
+    "cpu": 0,
+    "portMappings": [],
+    "entryPoint": [
+      "sh",
+      "/root/startup.sh"
+    ],
+    "essential": true,
+    "volumesFrom": []
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "environment": [],
+    "name": "scalamatsuri-simple-stream",
+    "mountPoints": [
+      {
+        "sourceVolume": "logs",
+        "containerPath": "/var/log/scalamatsuri"
+      }
+    ],
+    "image": "995375717683.dkr.ecr.ap-northeast-1.amazonaws.com/scalamatsuri-simple-stream:latest",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "ap-northeast-1",
+        "awslogs-stream-prefix": "ecs",
+        "awslogs-group": "/ecs/scalamatsuri-simple-stream"
+      }
+    },
+    "cpu": 0,
+    "portMappings": [],
+    "entryPoint": [
+      "sh",
+      "/root/startup.sh"
+    ],
+    "essential": true,
+    "volumesFrom": []
+  }
+]
